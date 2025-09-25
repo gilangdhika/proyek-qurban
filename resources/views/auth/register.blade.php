@@ -14,9 +14,9 @@
                                 @csrf
                                 <!-- Nama -->
                                 <div class="form-floating mb-3">
-                                    <input type="text" name="name" class="form-control" id="name"
+                                    <input type="text" name="nama" class="form-control" id="nama"
                                         placeholder="Nama lengkap" required>
-                                    <label for="name">Nama Lengkap</label>
+                                    <label for="nama">Nama Lengkap</label>
                                 </div>
                                 <!-- Email -->
                                 <div class="form-floating mb-3">
@@ -42,11 +42,21 @@
                                         required></textarea>
                                     <label for="alamat">Alamat</label>
                                 </div>
+                                <!-- Role -->
+                                {{-- <div class="form-floating mb-3">
+                                    <select class="form-select" name="role" id="role" required>
+                                        <option value="kurir">Kurir</option>
+                                        <option value="panitia">Panitia</option>
+                                        <option value="shohibul">Shohibul</option>
+                                        <option value="penerima">Penerima</option>
+                                    </select>
+                                    <label for="role">Pilih Role</label>
+                                </div> --}}
                                 <!-- Tombol -->
                                 <div class="d-grid mb-3">
                                     <button type="submit" class="btn btn-primary btn-xl">Register</button>
                                 </div>
-                                      <!-- Tombol kembali -->
+                                <!-- Tombol kembali -->
                                 <div class="d-grid mb-3">
                                     <a href="{{ url('/') }}" class="btn btn-dark btn-xl">Kembali</a>
                                 </div>

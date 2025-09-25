@@ -2,16 +2,39 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PeriodeController;
 use App\Http\Controllers\PendaftaranController;
+use App\Http\Controllers\AuthController;
+
+Route::get('/register', function () {
+    return view('auth.register');
+})->name('register');
+Route::post('/register', [AuthController::class, 'register']);
+
+Route::post('/login', [AuthController::class, 'login'])->name('login');
+
+Route::get('/halaman', function () {
+    return view('User.halaman'); 
+})->middleware('auth')->name('halaman');
 
 Route::get('/', function () {
     return view('forfront');
 });
+
+route::get('/logout', function () {
+    return view('register');
+})->name('logout');
+Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth');
+
+Route::get('/pendaftaran', function () {
+    return view('pendaftaran.index');
+})->middleware('auth')->name('pendaftaran');
+
+Route::get('/user', [UserController::class, 'index']);
+
 Route::get('/dashboard', function () {
     return view('tester');
 });
-
-Route::get('/user', [UserController::class, 'index']);
 
 Route::get('/periodqurban', function () {
     return view('layout.admin.periodqurban');
@@ -46,27 +69,17 @@ Route::get('/profile', function () {
     return view('layout.admin.profile');
 });
 
+// Route::get('/halaman', function () {
+//     return view('user.halaman');
+// });
 
-
-Route::get('/register', function () {
-    return view('register');
-})->name('register');
-
-route::get('/logout', function () {
-    return view('register');
-})->name('logout');
-
-Route::get('/halaman', function () {
-    return view('user.halaman');
+Route::get('/halpatungan', function () {
+    return view('user.pagepatungan');
 });
 
-// Route::prefix('admin')->middleware(['auth'])->group(function () {
-//     // daftar pendaftaran
-//     Route::get('/pendaftaran', [PendaftaranController::class, 'index'])->name('admin.pendaftaran.index');
-
-//     // detail pendaftaran
-//     Route::get('/pendaftaran/{id}', [PendaftaranController::class, 'show'])->name('admin.pendaftaran.show');
-// });
+Route::resource('users', UserController::class);
+Route::resource('periode', PeriodeController::class);
+Route::resource('pendaftaran', PendaftaranController::class);
 
 
 Route::prefix('admin')->group(function () {

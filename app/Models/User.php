@@ -18,9 +18,11 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $fillable = [
-        'name',
+        'nama',
         'email',
         'password',
+        'alamat',
+        'role',
     ];
 
     /**
@@ -44,5 +46,34 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function pendaftarans()
+    {
+        return $this->hasMany(Pendaftaran::class);
+    }
+
+    // 1 User bisa punya banyak HewanKurban
+    public function hewanKurbans()
+    {
+        return $this->hasMany(HewanKurban::class);
+    }
+
+    // 1 User bisa jadi kurir di banyak Pembagian
+    public function pembagiansSebagaiKurir()
+    {
+        return $this->hasMany(Pembagian::class, 'kurir_id');
+    }
+
+    // 1 User bisa menjadi penerima
+    public function penerima()
+    {
+        return $this->hasOne(Penerima::class);
+    }
+
+    // 1 User bisa ikut banyak DetailPatungan
+    public function detailPatungans()
+    {
+        return $this->hasMany(DetailPatungan::class);
     }
 }

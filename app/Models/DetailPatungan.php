@@ -5,17 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class DetailPendaftaran extends Model
+class DetailPatungan extends Model
 {
     use HasFactory;
 
-    protected $table = 'detail_pendaftaran';
+    protected $table = 'detail_patungan';
 
     protected $fillable = [
         'pendaftaran_id',
         'hewan_kurban_id',
-        'jumlah',
-        'total_harga',
+        'jumlah_orang',
+        'porsi',
     ];
 
     public function pendaftaran()

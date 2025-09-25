@@ -9,8 +9,6 @@
                 <!-- Card Peserta 1 -->
                 <div class="col-md-4">
                     <div class="card shadow-sm h-100">
-                        <img src="https://via.placeholder.com/400x200?text=Bukti+Transfer" class="card-img-top"
-                            alt="Bukti Transfer">
                         <div class="card-body">
                             <h5 class="card-title">Ahmad Fauzi</h5>
                             <p class="mb-1"><strong>Email:</strong> ahmad@example.com</p>
@@ -32,8 +30,6 @@
                 <!-- Card Peserta 2 -->
                 <div class="col-md-4">
                     <div class="card shadow-sm h-100">
-                        <img src="https://via.placeholder.com/400x200?text=Bukti+Transfer" class="card-img-top"
-                            alt="Bukti Transfer">
                         <div class="card-body">
                             <h5 class="card-title">Siti Aisyah</h5>
                             <p class="mb-1"><strong>Email:</strong> siti@example.com</p>
@@ -55,8 +51,6 @@
                 <!-- Card Peserta 3 -->
                 <div class="col-md-4">
                     <div class="card shadow-sm h-100">
-                        <img src="https://via.placeholder.com/400x200?text=Bukti+Transfer" class="card-img-top"
-                            alt="Bukti Transfer">
                         <div class="card-body">
                             <h5 class="card-title">Budi Santoso</h5>
                             <p class="mb-1"><strong>Email:</strong> budi@example.com</p>

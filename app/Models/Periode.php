@@ -7,20 +7,27 @@ use Illuminate\Database\Eloquent\Model;
 
 class Periode extends Model
 {
-    use HasFactory;
+    Use HasFactory;
 
-    protected $table = 'periode'; // nama tabel
+    protected $table = 'periode';
+
     protected $fillable = [
         'tahun',
         'jenis_tahun',
         'tanggal_mulai',
         'tanggal_selesai',
-        'status'
+        'status',
     ];
 
-    // Relasi ke Pendaftaran
-    public function pendaftarans()
+    public function hewanKurbans()
     {
-        return $this->hasMany(Pendaftaran::class, 'periode_id');
+        return $this->hasMany(HewanKurban::class, 'periode_id');
     }
+    
+    public function penerima()
+    {
+        return $this->hasMany(Penerima::class, 'periode_id');
+        
+    }
+
 }

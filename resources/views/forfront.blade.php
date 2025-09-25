@@ -2,7 +2,7 @@
 
 @section('content')
     <header class="masthead bg-dark"
-        style="background: url('{{ asset('assets/images/backgrounds/background sapi.jpg') }}') center/cover no-repeat; min-height: 100vh; filter: brightness(72%)">
+        style="background: url('{{ asset('assets/images/backgrounds/background sapi.jpg') }}') center/cover no-repeat; min-height: 100vh; filter: brightness(70%)">
         <div class="container px-4 px-lg-5 h-100">
             <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
                 <div class="col-lg-8 align-self-end">
@@ -174,44 +174,26 @@
                     <!-- To make this form functional, sign up at-->
                     <!-- https://startbootstrap.com/solution/contact-forms-->
                     <!-- to get an API token!-->
-                    <form id="contactForm" data-sb-form-api-token="API_TOKEN">
-                        <!-- Email address input-->
+                    <!-- Email address input-->
+                    <form method="POST" action="{{ route('login') }}">
+                        @csrf
                         <div class="form-floating mb-3">
-                            <input class="form-control" id="email" type="email" placeholder="example@gmail.com"
-                                data-sb-validations="required,email" />
+                            <input class="form-control" name="email" id="email" type="email"
+                                placeholder="example@gmail.com" required>
                             <label for="email">Email</label>
-                            <div class="invalid-feedback" data-sb-feedback="email:required">Email harus diisi.</div>
-                            <div class="invalid-feedback" data-sb-feedback="email:email">Email tidak valid.</div>
                         </div>
-                        <!-- Phone number input-->
+
                         <div class="form-floating mb-3">
-                            <input class="form-control" id="password" type="password" placeholder="Isi password anda"
-                                data-sb-validations="required" />
+                            <input class="form-control" name="password" id="password" type="password"
+                                placeholder="Isi password anda" required>
                             <label for="password">Password</label>
-                            <div class="invalid-feedback" data-sb-feedback="password:required">Password harus diisi.
-                            </div>
                         </div>
-                        <!-- has successfully submitted-->
-                        <div class="d-none" id="submitSuccessMessage">
-                            <div class="text-center mb-3">
-                                <div class="fw-bolder">Form submission successful!</div>
-                                To activate this form, sign up at
-                                <br />
-                                <a
-                                    href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-                            </div>
+
+                        <div class="d-grid">
+                            <button class="btn btn-primary btn-xl" type="submit">Login</button>
                         </div>
-                        <!-- Submit error message-->
-                        <!---->
-                        <!-- This is what your users will see when there is-->
-                        <!-- an error submitting the form-->
-                        <div class="d-none" id="submitErrorMessage">
-                            <div class="text-center text-danger mb-3">Pesan Error!</div>
-                        </div>
-                        <!-- Submit Button-->
-                        <div class="d-grid"><button class="btn btn-primary btn-xl disabled" id="submitButton"
-                                type="submit">Login</button></div>
                     </form>
+
                     <div class="mt-3 text-center">
                         <span>Belum punya akun? <a href="/register">Daftar di sini</a></span>
                     </div>

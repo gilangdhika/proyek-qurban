@@ -5,22 +5,21 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class DetailPendaftaran extends Model
+class Pembagian extends Model
 {
     use HasFactory;
 
-    protected $table = 'detail_pendaftaran';
+    protected $table = 'pembagian';
 
     protected $fillable = [
-        'pendaftaran_id',
+        'penerima_id',
         'hewan_kurban_id',
         'jumlah',
-        'total_harga',
     ];
 
-    public function pendaftaran()
+    public function penerima()
     {
-        return $this->belongsTo(Pendaftaran::class);
+        return $this->belongsTo(Penerima::class);
     }
 
     public function hewanKurban()

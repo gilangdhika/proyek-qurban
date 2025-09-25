@@ -9,22 +9,21 @@ class Pendaftaran extends Model
 {
     use HasFactory;
 
-
     protected $table = 'pendaftaran';
 
-    // kolom yang bisa diisi (sesuaikan dengan tabelmu)
     protected $fillable = [
         'user_id',
         'periode_id',
+        'id_hewan_kurban',
         'jumlah_kurban',
         'jumlah_harga',
         'status',
         'bukti_tf',
     ];
 
-    // /**
-    //  * Relasi ke User (peserta/shohibul qurban)
-    //  */
+    /**
+     * Relasi ke User (peserta/shohibul qurban)
+     */
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
@@ -39,10 +38,18 @@ class Pendaftaran extends Model
     }
 
     /**
-     * Relasi ke Detail Pendaftaran (misalnya berisi hewan, jumlah, dll)
+     * Relasi ke Detail Pendaftaran
      */
     public function details()
     {
         return $this->hasMany(DetailPendaftaran::class, 'pendaftaran_id');
+    }
+
+    /**
+     * Relasi ke Hewan Qurban
+     */
+    public function hewanKurban()
+    {
+        return $this->belongsTo(HewanKurban::class, 'id_hewan_kurban');
     }
 }
